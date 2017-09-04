@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block main%}
+	<ol class="breadcrumb">
+	  <li><a href="/">管理首页</a></li>
+	  <li><span>修改内容</span></li>
+	</ol>
+<h3>修改内容 =={{contents.content}}</h3>
+
+<form role="form">
+  <div class="form-group">
+  	
+    <label for="name">分类名称:</label>
+    <select name="contentID" id="giser" class="form-control">
+	    	{% for giser in gisers%}
+	    		{% if contents.contentID ==giser.id%}
+	    			<option value="{{giser.id}}" selected>{{giser.name}}</option>
+	    		{%else%}
+	    			<option value="{{giser.id}}">{{giser.name}}</option>
+	    		{%endif%}
+	    	{%endfor%}
+    </select>
+  </div>
+   <div class="form-group">
+    <label for="title">标题:</label>
+    <input type="text" class="form-control" id="title" placeholder="请输入标题名称" name="title" value="{{contents.title}}">
+  </div>
+  <div class="form-group">
+    <label for="derection">简介:</label>
+    <textarea name="derection" rows="3" placeholder="请输入简介" class="form-control">{{contents.derection}}</textarea>
+  </div>
+  <div class="form-group">
+    <label for="content">内容:</label>
+    <textarea name="content" rows="7" placeholder="请输入内容"  class="form-control">{{contents.content}}</textarea>
+  </div>
+  <a href="javascript:;" class="btn btn-default" id="contentUpdate" val="{{contents.id.toString()}}">提交</a>
+</form>
+
+	
+{% endblock%}

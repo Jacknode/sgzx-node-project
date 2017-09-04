@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block main%}
+	<ol class="breadcrumb">
+	  <li><a href="/">管理首页</a></li>
+	  <li><span>用户列表</span></li>
+	</ol>
+<h3>用户列表</h3>
+	<table class="table table-hover table-striped">
+		<tr>
+			<th>id</th>
+			<th>用户名</th>
+			<th>密码</th>
+			<th>用户权限</th>
+		</tr>
+		{% for objname in objnames %}
+		<tr>
+			<td>{{objname._id.toString()}}</td>
+			<td>{{objname.username}}</td>
+			<td>{{objname.password}}</td>
+			{% if objname.isAdmin ==true %}
+			<td class ="isAdmin" val="{{objname.isAdmin}}">管理员</td>
+			{%else%}
+			<td class ="isAdmin" val="{{objname.isAdmin}}">普通管理员</td>
+			{%endif%}
+		</tr>
+		{% endfor %}
+	</table>
+	{% include 'page.html' %}
+{% endblock%}

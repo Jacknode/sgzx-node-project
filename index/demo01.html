@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" name="attachment" id="attachment" />
+<input type="text" name="trueattachment" id="trueattachment" />
+</body>
+</html>
+<script type="text/javascript">
+    var attachment=document.getElementById("attachment");
+    var trueattachment=document.getElementById("trueattachment");
+    attachment.onchange=function(){
+        trueattachment.value=getFullPath(this);
+    }
+    function getFullPath(obj){
+        if(obj)
+        {
+            //ie
+            if (window.navigator.userAgent.indexOf("MSIE")>=1)
+            {
+                obj.select();
+                return document.selection.createRange().text;
+            }
+            //firefox
+            else if(window.navigator.userAgent.indexOf("Firefox")>=1)
+            {
+                if(obj.files)
+                {
+                    return obj.files.item(0).getAsDataURL();
+                }
+                return obj.value;
+            }
+            return obj.value;
+        }
+    }
+</script>

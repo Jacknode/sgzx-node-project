@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block main%}
+	<ol class="breadcrumb">
+	  <li><a href="/">管理首页</a></li>
+	  <li><span>添加图片</span></li>
+	</ol>
+<h3>添加图片</h3>
+
+<form role="form"  enctype='multipart/form-data' action='/admin/img/add'  method='post' >
+  <div class="form-group">
+    <label for="name">图片名称:</label>
+      <input type="text" class="form-control" id="name" placeholder="请输入图片名称" name="name">
+  </div>
+   <div class="form-group">
+    <label for="url">跳转地址:</label>
+    <input type="text" class="form-control" id="url" placeholder="请输入跳转地址" name="url">
+  </div>
+  <div class="form-group">
+    <label for="imgurl">图片地址:</label>
+      <input type="file" class="form-control" id="imgurl"  name="avatar">
+  </div>
+  <!-- <a href="javascript:;" id="imgsubmit" class="btn btn-default" val="{{contents.id.toString()}}">提交</a> -->
+  <input type="submit" value="提交" class="btn btn-success" id="imgSubmit" name="avatar">
+</form>
+
+	
+{% endblock%}

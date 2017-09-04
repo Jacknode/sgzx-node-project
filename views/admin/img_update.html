@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block main%}
+<ol class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><span>修改图片</span></li>
+</ol>
+<h3>修改图片</h3>
+
+<form role="form">
+    <div class="form-group">
+        <label for="name">图片名称:</label>
+        <input type="text" class="form-control" id="name" placeholder="请输入图片名称" name="name" value="{{imgs.name}}">
+    </div>
+    <div class="form-group">
+        <label for="url">跳转地址:</label>
+        <input type="text" class="form-control" id="url" placeholder="请输入跳转地址" name="url" value="{{imgs.url}}">
+    </div>
+    <div class="form-group">
+        <label for="imgurl">图片地址:</label>
+        <input type="file" class="form-control" id="imgurl"  name="imgurl">
+    </div>
+    <a href="javascript:;" id="imgupdate" class="btn btn-default" val="{{imgs.id.toString()}}">提交</a>
+</form>
+
+
+{% endblock%}

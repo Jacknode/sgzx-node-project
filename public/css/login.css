@@ -1,0 +1,14 @@
+#login{
+	position: absolute;
+	top: -40px;
+	left: 50%;
+	display: block;
+	padding: 5px 10px;
+	background: green;
+	color:#fff;
+	z-index: 100;
+	text-decoration: none;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 10px;
+}

@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block main%}
+	<ol class="breadcrumb">
+		  <li><a href="#">后台首页</a></li>
+		  <li class="active">导航展示</li>
+	</ol>
+	<h3>导航列表展示</h3>
+	<table class="table table-hover table-striped">
+		<tr>
+			<th>id</th>
+			<th>导航名称</th>
+			<th>操作</th>
+		</tr>
+		{% for objname in objnames %}
+		<tr>
+			<td>{{objname._id.toString()}}</td>
+			<td>{{objname.name}}</td>
+			<td>
+				<a href="/admin/giser/update?id={{objname._id.toString()}}">修改</a>
+				<a href="javascript:;" val="{{objname._id.toString()}}" class="giserdel">删除</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% include 'page.html' %}
+
+{% endblock%}
